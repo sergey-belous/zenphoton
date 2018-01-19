@@ -1,0 +1,16 @@
+{
+  "name": "zf-html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rayworker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "coffee": "^4.1.0",
+    "coffeescript": "^2.1.1",
+    "jsmin": "^1.0.1"
+  }
+}

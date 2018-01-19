@@ -73,7 +73,7 @@ class Renderer
 
         # Realistic but conservative speed estimate;
         # this determines how fast the batch size will initially ramp up.
-        @speedEstimate = 5000
+        @speedEstimate = 50000
 
         @segments = []
         @exposure = 0.5
@@ -148,7 +148,7 @@ class Renderer
 
                 @raysTraced = msg.raysTraced
                 @pixelImage.data.set new Uint8ClampedArray msg.pixels
-                @updateSpeedEstimate()
+                # @updateSpeedEstimate()
 
                 # Redraw the canvas and update our UI.
                 @redraw()
@@ -254,7 +254,7 @@ class Renderer
         @latestCookie++
         @startTime = new Date
 
-        # Start working immediately?
+        # # Start working immediately?
         if @interactive._numPending == 0
             @firstTrace()
 
@@ -359,7 +359,8 @@ class Renderer
         push16(@width)
         push16(@height)
         push16(@lightX)
-        push16(@lightY)
+        push16(@lightX)
+        
         push8F(@exposure)
         push16(@segments.length)
 

@@ -7,7 +7,7 @@ if [[ $1 == "debug" ]]; then
     MINIFY=cat
     DEBUG_CODE=src/fakeworker-0.1.js
 else
-    MINIFY=jsmin
+    MINIFY=./node_modules/jsmin/bin/jsmin
     DEBUG_CODE=
 fi
 
@@ -15,7 +15,7 @@ fi
 (
     cat src/header.js
     (
-        coffee -c -p src/worker-noasm.coffee
+        ./node_modules/coffeescript/bin/coffee -c -p src/worker-noasm.coffee
     ) | $MINIFY
 ) > rayworker.js
 
@@ -24,7 +24,7 @@ fi
     cat src/header.js
     (
         cat src/worker-asm-core.js
-        coffee -c -p src/worker-asm-shell.coffee
+        ./node_modules/coffeescript/bin/coffee -c -p src/worker-asm-shell.coffee
     ) | $MINIFY
 ) > rayworker-asm.js
 
@@ -44,6 +44,25 @@ fi
                 src/zen-widgets.coffee \
                 src/zen-ui.coffee \
                 src/zen-setup.coffee
-        ) | coffee -p -s
+        ) | ./node_modules/coffeescript/bin/coffee -p -s
     ) | $MINIFY
 ) > zenphoton.js
+
+(
+    cat src/header.js
+    (
+        cat \
+            src/jquery-1.9.1.min.js \
+            src/jquery.hotkeys.js \
+            src/asmjs-feature-test.js \
+            src/analytics.js \
+            $DEBUG_CODE
+        (
+            cat \
+                src/zen-renderer.coffee \
+                src/zen-widgets.coffee \
+                src/zen-ui.coffee \
+                src/zen-setup.coffee
+        ) | ./node_modules/coffeescript/bin/coffee -p -s
+    ) | $MINIFY
+) > zenphoton-scene.js

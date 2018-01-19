@@ -26,6 +26,25 @@
 #
 
 $(document).ready(() ->
-    ui = new GardenUI
-    ui.renderer.start()
+    # ui = new GardenUI
+    # ui.renderer.start()
+    # window.ui = ui
+    # odd = false
+    # segment = (i) ->
+    #     seg = new Segment(i[0], i[1], i[0] + i[2], i[1], 1, 0, 0) 
+    #     seg1 = new Segment(i[0] + i[2], i[1], i[0] + i[2], i[1] + i[3], 1, 0, 0) 
+    #     seg2 = new Segment(i[0] + i[2], i[1] + i[3], i[0], i[1] + i[3], 1, 0, 0) 
+    #     seg3 = new Segment(i[0], i[1] + i[2], i[0], i[1], 1, 0, 0)
+    #     ui.renderer.segments.push(seg)
+    #     ui.renderer.segments.push(seg1)
+    #     ui.renderer.segments.push(seg2)
+    #     ui.renderer.segments.push(seg3)
+    # setInterval(() -> 
+    #     ui.renderer.segments = []
+    #     currentJson = JSON.parse($('#b_position').text())
+    #     segment i for i in currentJson.bodies
+    #     ui.renderer.clear()
+    # , 40)
+    
 )
+
