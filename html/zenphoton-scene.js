@@ -155,4 +155,5 @@ initMaterialSlider(sel,defaultValue){var widget;widget=new HSlider($(sel));widge
 if(total<=1){return;}
 ref1=this.material;results=[];for(k=0,len1=ref1.length;k<len1;k++){m=ref1[k];if(m===widget){continue;}
 if(v===1){results.push(m.setValue(0));}else{results.push(m.setValue(m.value*(1-v)/(total-v)));}}
-return results;};return widget;}};$(document).ready(function(){});}).call(this);
+return results;};return widget;}};$(document).ready(function(){var odd,segment,ui;ui=new GardenUI;ui.renderer.start();window.ui=ui;odd=false;segment=function(i){var seg,seg1,seg2,seg3;seg=new Segment(i[0],i[1],i[0]+i[2],i[1],1,0,0);seg1=new Segment(i[0]+i[2],i[1],i[0]+i[2],i[1]+i[3],1,0,0);seg2=new Segment(i[0]+i[2],i[1]+i[3],i[0],i[1]+i[3],1,0,0);seg3=new Segment(i[0],i[1]+i[2],i[0],i[1],1,0,0);ui.renderer.segments.push(seg);ui.renderer.segments.push(seg1);ui.renderer.segments.push(seg2);return ui.renderer.segments.push(seg3);};return setInterval(function(){var currentJson,i,j,len,ref;ui.renderer.segments=[];currentJson=JSON.parse($('#b_position').text());ref=currentJson.bodies;for(j=0,len=ref.length;j<len;j++){i=ref[j];segment(i);}
+return ui.renderer.clear();},40);});}).call(this);
