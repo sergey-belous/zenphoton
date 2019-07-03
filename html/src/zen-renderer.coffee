@@ -73,7 +73,7 @@ class Renderer
 
         # Realistic but conservative speed estimate;
         # this determines how fast the batch size will initially ramp up.
-        @speedEstimate = 5000
+        @speedEstimate = 50000
 
         @segments = []
         @exposure = 0.5
